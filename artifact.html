@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<title>داشبورد کنکور</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<div class="app">
+
+<aside class="sidebar">
+
+<h2>🎓 کنکور</h2>
+
+<button onclick="navigate('dashboard')">داشبورد</button>
+<button onclick="navigate('study')">مطالعه</button>
+<button onclick="navigate('tests')">تست</button>
+<button onclick="navigate('report')">گزارش روزانه</button>
+<button onclick="navigate('goals')">هدف روزانه</button>
+
+<hr>
+
+<button onclick="toggleTheme()">🌙 تم شب/روز</button>
+
+</aside>
+
+<main class="content">
+
+<section id="dashboard">
+
+<div class="grid">
+
+<div class="card">
+
+<h3>ساعت ایران</h3>
+<div id="clock" class="big"></div>
+
+<h3>تاریخ امروز</h3>
+<div id="date"></div>
+
+</div>
+
+<div class="card">
+
+<h3>زمان تا کنکور</h3>
+<div id="konkur"></div>
+
+<h3>زمان تا نهایی</h3>
+<div id="final"></div>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>نمودار ساعت مطالعه</h3>
+<canvas id="studyChart"></canvas>
+
+</div>
+
+<div class="card">
+
+<h3>نمودار تست</h3>
+<canvas id="testChart"></canvas>
+
+</div>
+
+</section>
+
+<section id="study" class="hidden">
+
+<div class="card">
+
+<h3>ثبت ساعت مطالعه</h3>
+
+<select id="lesson">
+
+<option>ریاضی</option>
+<option>زیست</option>
+<option>شیمی</option>
+<option>فیزیک</option>
+<option>ادبیات</option>
+<option>عربی</option>
+<option>دینی</option>
+<option>زبان</option>
+
+</select>
+
+<input id="hours" placeholder="ساعت مطالعه">
+
+<button onclick="saveStudy()">ثبت</button>
+
+</div>
+
+</section>
+
+<section id="tests" class="hidden">
+
+<div class="card">
+
+<h3>ثبت تست</h3>
+
+<select id="testLesson">
+
+<option>ریاضی</option>
+<option>زیست</option>
+<option>شیمی</option>
+
+</select>
+
+<input id="testCount" placeholder="تعداد تست">
+
+<button onclick="saveTest()">ثبت</button>
+
+</div>
+
+</section>
+
+<section id="goals" class="hidden">
+
+<div class="card">
+
+<h3>هدف روزانه</h3>
+
+<input id="goalStudy" placeholder="هدف ساعت مطالعه">
+
+<input id="goalTest" placeholder="هدف تست">
+
+<button:0;
+background:#ثبت</button>
+
+<p id="goalProgress"></p>
+
+</div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+
+function navigate(page){
+
+document.querySelectorAll(section).forEach(s={
+
+s.classList.add(hidden)
+
+})
+
+document.getElementById(page).classList.remove(hidden)
+
+}
+
+function toggleTheme(){
+
+document.body.classList.toggle(dark)
+
+}
+
+function updateClock(){
+
+clock.innerText=new Date().toLocaleTimeString(fa-IR,{timeZoneAsiaTehran})
+
+}
+
+setInterval(updateClock,1000)
+
+date.innerText=new Date().toLocaleDateString(fa-IR)
+
+const konkurDate=new Date(2026-08-21)
+const finalDate=new Date(2026-07-12)
+
+function countdown(){
+
+let now=new Date()
+
+let k=Math.floor((konkurDate-now)86400000)
+let f=Math.floor((finalDate-now)86400000)
+
+konkur.innerText=k+ روز
+final.innerText=f+ روز
+
+}
+
+setInterval(countdown,1000)
+
+let studyData=JSON.parse(localStorage.getItem(study){})
+let testData=JSON.parse(localStorage.getItem(tests){})
+
+function saveStudy(){
+
+let l=lesson.value
+let h=parseFloat(hours.value)
+
+if(!studyData[l]) studyData[l]=0
+
+studyData[l]+=h
+
+localStorage.setItem(study,JSON.stringify(studyData))
+
+updateCharts()
+
+}
+
+function saveTest(){
+
+let l=testLesson.value
+let c=parseInt(testCount.value)
+
+if(!testData[l]) testData[l]=0
+
+testData[l]+=c
+
+localStorage.setItem(tests,JSON.stringify(testData))
+
+updateCharts()
+
+}
+
+const studyChart=new Chart(document.getElementById(studyChart),{
+
+typebar,
+
+data{
+labels[],
+datasets[{
+labelمطالعه,
+data[],
+backgroundColor#6366f1
+}]
+}
+
+})
+
+const testChart=new Chart(document.getElementById(testChart),{
+
+typebar,
+
+data{
+labels[],
+datasets[{
+labelتست,
+data[],
+backgroundColor#22c55e
+}]
+}
+
+})
+
+function updateCharts(){
+
+studyChart.data.labels=Object.keys(studyData)
+studyChart.data.datasets[0].data=Object.values(studyData)
+
+testChart.data.labels=Object.keys(testData)
+testChart.data.datasets[0].data=Object.values(testData)
+
+studyChart.update()
+testChart.update()
+
+}
+
+updateCharts()
